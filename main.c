@@ -21,14 +21,17 @@ static void repl() {
 }
 
 static char *readFile(const char *path) {
+
     FILE *file;
     fopen_s(&file, path, "rb");
 
-    fseek(file, 0L, SEEK_END);
     if (file == NULL) {
         fprintf(stderr, "Could not open file \"%s\".\n", path);
         exit(74);
     }
+
+    fseek(file, 0L, SEEK_END);
+
     size_t fileSize = ftell(file);
     rewind(file);
 
@@ -71,6 +74,6 @@ int main(int argc, const char *argv[]) {
     }
 
     freeVM();
-    freeChunk(&chunk);
+//    freeChunk(&chunk);
     return 0;
 }
