@@ -1,12 +1,14 @@
-class Oops {
-  init() {
-    fun f() {
-      print "not a method";
+class A {
+    prin(){
+        print "Hello";
     }
+}
 
-    this.field = f;
+class Oops < A {
+  init() {
+      super.prin();
+      print "not a method";
   }
 }
 
 var oops = Oops();
-oops.field();
